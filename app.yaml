@@ -1,0 +1,23 @@
+application: testapp
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /nextword
+  script: web.next_word.app
+- url: /main\.css
+  static_files: web/main.css
+  upload: web/main.css
+- url: /main\.js
+  static_files: web/main.js
+  upload: web/main.js
+- url: /.*
+  static_files: web/main.html
+  upload: web/main.html
+
+libraries:
+- name: webapp2
+  version: "2.5.2"
+

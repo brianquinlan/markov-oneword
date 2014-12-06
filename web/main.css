@@ -1,0 +1,24 @@
+span.prettyword {
+  transition: color 3s;
+  color: #000;
+}
+
+span.greatawnswer {
+  color: #0f0;
+}
+
+span.goodawnswer {
+  color: #fc0;
+}
+
+span.fairawnswer {
+  color: #f60;
+}
+
+span.badawnswer {
+  color: #c30;
+}
+
+span.failedawnswer {
+  color: #f33;
+}
