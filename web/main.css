@@ -1,3 +1,27 @@
+body {
+  background-color: #f6f4f2;
+}
+
+div.card {
+  margin: 1em;
+  font: 48px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding: 1em;
+  background-color: #fff;
+  box-shadow: 1px 1px 0px #888888;
+
+}
+
+
+img.refresh {
+  width: 48px;
+  height: 48px;
+  float: right;
+}
+
+input {
+  font: 48px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 span.prettyword {
   transition: color 3s;
   color: #000;

@@ -73,15 +73,18 @@ gameController.updateGameText_ = function(words,
     if (prettyWords.length) {
       gameDiv.append(" ");
     }
-    var input = $('<input>', { "type": "text", "value": ""});
+    var input = $('<input>').attr({"size": "1", "type": "text", "value": ""});
     input.on(
       'keydown',
       function(e) {
         if(e.which == 13 || e.which == 9) {
-            e.preventDefault();
-            gameController.loadNextWord(words, e.target.value);
+          e.preventDefault();
+          gameController.loadNextWord(words, e.target.value);
         }
       });
+    input.keyup(function(){
+      $(this).attr({size: $(this).val().length + 1});
+    });
     gameDiv.append(input);
     input.focus()
   }

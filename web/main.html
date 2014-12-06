@@ -9,10 +9,15 @@
     <script src="/main.js"></script>
   </head>
   <body>
-    <div id="gametext">
+    <div class="card">
+      <span id="gametext"></span>
+      <img class="refresh" src="https://google.github.io/material-design-icons/navigation/svg/ic_refresh_24px.svg">
     </div>
     <script>
       gameController.loadNextWord();
+      $(".refresh").click(function() {
+        gameController.loadNextWord();
+      });
     </script>
   </body>
 </html>
