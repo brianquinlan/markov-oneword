@@ -16,6 +16,9 @@ handlers:
 - url: /load\.gif
   static_files: web/load.gif
   upload: web/load.gif
+- url: /icon\.png
+  static_files: web/icon.png
+  upload: web/icon.png
 - url: /.*
   static_files: web/main.html
   upload: web/main.html
