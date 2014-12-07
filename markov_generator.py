@@ -92,7 +92,7 @@ class MarkovGenerator(object):
             weighted_choice_list = self.model.get('_'.join(words[i:]), [])
             if weighted_choice_list:
                 return len(words) - i, weighted_choice_list
-        raise NoTransitionState('No transitional state for: %r', words[-10:])
+        return None, []
 
     def _choose_from_weighted_list(self, weighted_word_list):
         last_weight, _ = weighted_word_list[-1]
@@ -103,15 +103,13 @@ class MarkovGenerator(object):
 
     def choose_word(self, words):
         word_matches, weighted_word_list = self._get_weighted_list(words)
+        if word_matches is None or weighted_word_list is None:
+            raise NoTransitionState('No transitional state for: %r', words[-10:])
         return word_matches, self._choose_from_weighted_list(weighted_word_list)
 
     def is_ended(self, words):
-        try:
-            self.choose_word(words)
-        except NoTransitionState:
-            return True
-        else:
-            return False
+        word_matches, _ = self._get_weighted_list(words)
+        return word_matches is None
 
     def can_end(self, words):
         for i in range(len(words)):
