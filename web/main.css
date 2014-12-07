@@ -8,7 +8,6 @@ div.card {
   padding: 1em;
   background-color: #fff;
   box-shadow: 1px 1px 0px #888888;
-
 }
 
 
@@ -16,6 +15,12 @@ img.refresh {
   width: 48px;
   height: 48px;
   float: right;
+}
+
+img.load {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 input {

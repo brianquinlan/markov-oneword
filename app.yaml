@@ -13,6 +13,9 @@ handlers:
 - url: /main\.js
   static_files: web/main.js
   upload: web/main.js
+- url: /load\.gif
+  static_files: web/load.gif
+  upload: web/load.gif
 - url: /.*
   static_files: web/main.html
   upload: web/main.html
