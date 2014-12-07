@@ -5,8 +5,7 @@ import webapp2
 
 import markov_generator
 
-
-mg = markov_generator.MarkovGenerator.from_model_file('kingjames.json')
+mg = markov_generator.MarkovGenerator.from_model_file('kingjames.json.bz2')
 
 
 class NextWordHandler(webapp2.RequestHandler):

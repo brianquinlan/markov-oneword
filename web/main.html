@@ -14,6 +14,9 @@
       <img class="refresh" src="https://google.github.io/material-design-icons/navigation/svg/ic_refresh_24px.svg">
     </div>
     <script>
+      $(function() {
+        $(document).tooltip();
+      });
       gameController.loadNextWord();
       $(".refresh").click(function() {
         gameController.loadNextWord();

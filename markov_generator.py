@@ -6,6 +6,7 @@ import string
 import operator
 import re
 import collections
+import bz2
 
 class NoTransitionState(Exception):
     pass
@@ -29,8 +30,15 @@ class MarkovGenerator(object):
 
     @classmethod
     def from_model_file(cls, model_path):
-        with open(model_path) as f:
+        if model_path.endswith('.bz2'):
+            f = bz2.BZ2File(model_path)
+        else:
+            f = open(model_path)
+
+        try:
             return cls(json.load(f))
+        finally:
+            f.close()
 
     @staticmethod
     def check_sentence(sentence, words):
@@ -169,7 +177,7 @@ class MarkovGenerator(object):
                 words.append(word)
 
 if __name__ == '__main__':
-    MarkovGenerator.write_model_file('kingjames.txt', 'kingjames.json', max_size=5)
-    f = MarkovGenerator.from_model_file('testdata/corpus.json')
+    MarkovGenerator.write_model_file(
+        'kingjames.txt', 'kingjames.json', max_size=5)
 
 

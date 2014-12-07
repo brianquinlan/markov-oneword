@@ -50,6 +50,11 @@ gameController.createPrettyWordElement_ = function(
   return span;
 };
 
+gameController.INPUT_TOOL_TIP_ = (
+  "Type a word that would make sense in the context of the word that you " +
+  "already see. The phrases are taken from King James Bible so try to write " +
+  "something biblical. If you don't know what to type then press <tab>.");
+
 gameController.updateGameText_ = function(words,
                                           prettyWords,
                                           lastInputPrettyWordIndex,
@@ -73,7 +78,11 @@ gameController.updateGameText_ = function(words,
     if (prettyWords.length) {
       gameDiv.append(" ");
     }
-    var input = $('<input>').attr({"size": "1", "type": "text", "value": ""});
+    var input = $('<input>').attr({
+      "size": "1", "type": "text", "value": ""});
+    if (lastInputPrettyWordIndex == -1) {
+      input.attr({"title": gameController.INPUT_TOOL_TIP_});
+    }
     input.on(
       'keydown',
       function(e) {
